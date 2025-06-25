@@ -1,0 +1,67 @@
+{
+  "confirmshaming": [
+    "GDPR Article 7 - Consent must be freely given",
+    "DPDP Clause 6 - Fair and reasonable processing",
+    "CCPA Section 1798.120 - Right to opt out"
+  ],
+  "forced continuity": [
+    "GDPR Article 5 - Purpose limitation",
+    "DPDP Clause 8 - Consent withdrawal",
+    "CCPA Section 1798.100 - Right to know what is collected"
+  ],
+  "false urgency": [
+    "GDPR Article 5 - Lawfulness, fairness, transparency",
+    "DPDP Clause 7 - Misleading or deceptive design",
+    "FTC Guidelines - Misleading advertising practices"
+  ],
+  "preselection": [
+    "GDPR Article 7 - Consent must be opt-in",
+    "DPDP Clause 9 - No default consent",
+    "CCPA Section 1798.125 - No discrimination for exercising rights"
+  ],
+  "trick questions": [
+    "GDPR Article 12 - Clarity and transparency",
+    "DPDP Clause 5 - Notice and consent clarity",
+    "UX Best Practice - Avoid deceptive language"
+  ],
+  "hidden costs": [
+    "GDPR Article 13 - Transparency obligations",
+    "DPDP Clause 6 - Fair processing",
+    "CCPA Section 1798.110 - Disclose categories of data collected"
+  ],
+  "disguised ads": [
+    "FTC Guidelines - Ads must be clearly labeled",
+    "DPDP Clause 10 - Misleading presentation",
+    "GDPR Article 5 - Fairness in processing"
+  ],
+  "privacy zuckering": [
+    "GDPR Article 6 - Lawful basis for data use",
+    "DPDP Clause 4 - Purpose limitation",
+    "CCPA Section 1798.100 - Right to informed consent"
+  ],
+  "bait and switch": [
+    "GDPR Article 5 - Lawfulness and fairness",
+    "DPDP Clause 6 - Fairness",
+    "FTC Guidelines - Truth-in-advertising"
+  ],
+  "roach motel": [
+    "GDPR Article 7 - Easy withdrawal of consent",
+    "DPDP Clause 8 - Right to withdraw consent",
+    "UX Best Practice - Opt-out must be equal to opt-in"
+  ],
+  "obstruction": [
+    "GDPR Article 12 - Easy access to rights",
+    "DPDP Clause 5 - Reasonable and accessible notice",
+    "CCPA Section 1798.105 - Right to delete personal info"
+  ],
+  "scarcity bias": [
+    "GDPR Article 5 - Fair and transparent processing",
+    "DPDP Clause 6 - Avoid misleading users",
+    "UX Best Practice - Avoid manufactured urgency"
+  ],
+  "nagging": [
+    "UX Best Practice - Avoid interruptive UX patterns",
+    "GDPR Recital 32 - Consent must be specific and informed",
+    "DPDP Clause 7 - Unfair repeated prompts"
+  ]
+}
