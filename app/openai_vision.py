@@ -13,7 +13,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
-
 def analyze_frame_with_gpt(base64_image):
     prompt = (
         "This is a screenshot from a user interface.\n"
@@ -49,6 +48,8 @@ def analyze_frame_with_gpt(base64_image):
         )
 
         content = response["choices"][0]["message"]["content"]
+        print("GPT raw response:", repr(content))  
+
         return json.loads(content)
 
     except Exception as e:
@@ -59,6 +60,7 @@ def analyze_frame_with_gpt(base64_image):
             "fix": "",
             "violations": []
         }
+
 
 # def analyze_frame_with_gpt(base64_image):
 #     # Instead of calling OpenAI, just return dummy data
