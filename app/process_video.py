@@ -31,7 +31,7 @@ def extract_frames_one_per_second(video_path, output_dir):
 async def analyze_video_pipeline(file):
     uid = str(uuid.uuid4())
     video_path = f"temp_{uid}.mp4"
-    frames_dir = "frames"
+    frames_dir = f"frames_{uid}"
 
     with open(video_path, "wb") as f:
         shutil.copyfileobj(file.file, f)
@@ -42,17 +42,20 @@ async def analyze_video_pipeline(file):
     results = []
 
     for frame in frame_paths:
-        b64 = image_to_base64(os.path.join(frames_dir, frame))
-        frame_results = analyze_frame_with_gpt(b64)
+        image_path = os.path.join(frames_dir, frame)
+        b64_image = image_to_base64(image_path)
+
+        frame_results = analyze_frame_with_gpt(b64_image)
 
         if not isinstance(frame_results, list):
             frame_results = [frame_results]
 
         for result in frame_results:
             result["frame"] = frame
+            result["image"] = b64_image  
             results.append(result)
 
-    for frame in frame_paths:
-        os.remove(os.path.join(frames_dir, frame))
+    # Cleanup frame folder
+    shutil.rmtree(frames_dir)
 
     return results
