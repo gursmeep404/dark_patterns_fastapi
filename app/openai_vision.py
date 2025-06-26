@@ -9,14 +9,29 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def analyze_frame_with_gpt(base64_image):
     prompt = (
-        "This is a screenshot from a user interface.\n"
-        "Identify any dark patterns and return a JSON with the following fields:\n"
-        "- text: visible line with dark pattern\n"
-        "- pattern: type/category (e.g., 'sneak into basket')\n"
-        "- fix: how to fix the UI\n"
-        "- violations: list of possible legal rules broken (e.g., GDPR, DPDP)\n"
-        "Only output valid JSON."
+        "You are analyzing a user interface screenshot to detect the presence of dark patterns.\n\n"
+        "Carefully examine the image and identify any dark patterns present. Restrict your classification to ONLY the following 13 categories:\n"
+        "1. False Urgency\n"
+        "2. Basket Sneaking\n"
+        "3. Confirmshaming\n"
+        "4. Forced Action\n"
+        "5. Subscription Trap\n"
+        "6. Interface Interference\n"
+        "7. Bait & Switch\n"
+        "8. Drip Pricing\n"
+        "9. Disguised Advertisement\n"
+        "10. Nagging\n"
+        "11. Trick Question\n"
+        "12. SaaS Billing\n"
+        "13. Rogue Malware\n\n"
+        "Return your response strictly in valid JSON with the following fields:\n"
+        "- text: a snippet of the visible UI text that contains the dark pattern (or is evidence of it)\n"
+        "- pattern: one of the 13 categories listed above (do not invent new ones)\n"
+        "- fix: how this can be improved to respect user rights\n"
+        "- violations: list of legal rules or regulations that may be violated (e.g., GDPR, DPDP, FTC guidelines)\n\n"
+        "Only output valid JSON and no other text. Do not explain your reasoning. Assume the image is from a real-world product."
     )
+
 
     try:
         response = openai.ChatCompletion.create(
