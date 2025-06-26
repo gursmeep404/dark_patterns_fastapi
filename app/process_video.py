@@ -16,12 +16,19 @@ async def analyze_video_pipeline(file):
     os.remove(video_path)
 
     results = []
+
     for frame in frame_paths:
         b64 = image_to_base64(os.path.join(frames_dir, frame))
-        result = analyze_frame_with_gpt(b64)
-        result["frame"] = frame
-        result["mapped_violations"] = map_laws(result.get("pattern", ""))
-        results.append(result)
+        frame_results = analyze_frame_with_gpt(b64)
+
+        # Ensure it's a list
+        if not isinstance(frame_results, list):
+            frame_results = [frame_results]
+
+        for result in frame_results:
+            result["frame"] = frame
+            result["mapped_violations"] = map_laws(result.get("pattern", ""))
+            results.append(result)
 
     # Cleanup frames
     for frame in frame_paths:
