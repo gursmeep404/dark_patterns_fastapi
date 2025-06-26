@@ -41,7 +41,7 @@ async def analyze_video_pipeline(file):
 
     results = []
 
-    for frame in frame_paths:
+    for frame_index, frame in enumerate(frame_paths):
         image_path = os.path.join(frames_dir, frame)
         b64_image = image_to_base64(image_path)
 
@@ -51,6 +51,7 @@ async def analyze_video_pipeline(file):
             frame_results = [frame_results]
 
         for result in frame_results:
+            result["frame_id"] = frame_index + 1  
             result["frame"] = frame
             result["image"] = b64_image  
             results.append(result)
