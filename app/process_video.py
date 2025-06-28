@@ -1,6 +1,7 @@
 import uuid, os, shutil, cv2
 from app.utils.image_utils import image_to_base64
-from app.openai_vision import analyze_frame_with_gpt
+# from app.openai_vision import analyze_frame_with_gpt
+from app.openai_vision import analyze_frame_with_gemini
 
 def extract_frames_one_per_second(video_path, output_dir):
     if not os.path.exists(output_dir):
@@ -45,7 +46,8 @@ async def analyze_video_pipeline(file):
         image_path = os.path.join(frames_dir, frame)
         b64_image = image_to_base64(image_path)
 
-        frame_results = analyze_frame_with_gpt(b64_image)
+        # frame_results = analyze_frame_with_gpt(b64_image)
+        frame_results = analyze_frame_with_gemini(b64_image)
 
         if not isinstance(frame_results, list):
             frame_results = [frame_results]
