@@ -5,3 +5,4 @@ opencv-python
 python-multipart
 pillow
 dotenv
+google-generativeai
